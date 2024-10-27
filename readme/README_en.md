@@ -27,18 +27,116 @@ Simple Python module development tool.
 pip install xy_pydev
 ```
 
-## Start
+## Illustrate
+
+###### 1. Clear cache
 
 ```bash
 # bash
-xy_pydev -w clean
 # 删除缓存
+xy_pydev -w clean
+# ======================================
+# 开始清理模块缓存...
+# ======================================
+# ======================================
+# 即将清理包含以下列表中名称的目录或者文件: 
+# ['dist', '.egg-info', 'build']
+# ======================================
+# ======================================
+# 检测到以下缓存
+# ======================================
+# build
+# ======================================
+# xy_pydev.egg-info
+# ======================================
+# dist
+# ======================================
+# ======================================
+# 是否确定删除缓存?
+# Y ==> [确定]
+# 其他 ==> [取消]
+# 请输入[Y/n]
 
+```
+
+###### 2. Create a simple module
+
+```bash
+# 当前目录在 /home/helios/workspace/project/opensource/xy-base/xy_pydev/test
 xy_pydev
 # 出现引导，也可以按需提前设置参数
-
-xy_pydev -m test_module_name -n test_name -s 1
+# ======================================
+# 请输入新模块名称, 不能包含中文
+# xy_demo
+# ======================================
+# 新模块名称为: xy_demo
+# ======================================
+# 是否需要修改模块入口类名称?
+# 当前为: Runner
+# 不能包含中文
+# Y=>代表[需要];
+# 其他=>代表[不需要]
+# 请输入[ Y/n ]
+# ======================================
+# 是否需要添加全局命令?
+# Y=>代表[添加];
+# 其他=>代表[不添加]
+# 请输入[ Y/n ]
+# ======================================
+# 新模块创建完成!!!
 ```
+
+###### 2. Create a module containing global commands
+
+```bash
+xy_pydev
+# ======================================
+# 请输入新模块名称, 不能包含中文
+# xy_full_demo
+# ======================================
+# 新模块名称为: xy_full_demo
+# ======================================
+# 是否需要修改模块入口类名称?
+# 当前为: Runner
+# 不能包含中文
+# Y=>代表[需要];
+# 其他=>代表[不需要]
+# 请输入[ Y/n ]
+# ======================================
+# 是否需要添加全局命令?
+# Y=>代表[添加];
+# 其他=>代表[不添加]
+# 请输入[ Y/n ]
+# Y
+# ======================================
+# 新模块创建完成!!!
+```
+
+###### 3. Specify parameters to create a module
+
+```bash
+xy_pydev -h
+# usage: xy_dev [-h] [-w [WORK]] [-n [NAME]] [-m [MODULE_CLASS_NAME]]
+#               [-s [SCRIPTS]]
+# python模块开发工具
+# options:
+#   -h, --help            show this help message and exit
+#   -w [WORK], --work [WORK]
+#                         工作方式: 1.clean => 清理模块缓存 2.其他 => 创建项目
+#   -n [NAME], --name [NAME]
+#                         Python模块名称 不能包含中文
+#   -m [MODULE_CLASS_NAME], --module_class_name [MODULE_CLASS_NAME]
+#                         模块入口类名称 不能包含中文
+#   -s [SCRIPTS], --scripts [SCRIPTS]
+#                         是否开启全局命令
+
+xy_pydev -n xy_arg_demo -m ARG_DEMO -s 1
+# ======================================
+# 新模块名称为: xy_arg_demo
+# ======================================
+# 新模块创建完成!!!
+```
+
 
 ## License
 xy_pydev is licensed under the <Mulan Permissive Software License，Version 2>. See the [LICENSE](../LICENSE) file for more info.

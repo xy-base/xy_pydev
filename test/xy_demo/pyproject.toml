@@ -6,10 +6,10 @@ build-backend = "setuptools.build_meta"
 
 requires-python = ">=3.11.3"
 
-name = "{module_name}"
+name = "xy_demo"
 
-authors = [{{ name = "余洋", email = "yuyangit.0515@qq.com" }}]
-description = "{module_name} 模块"
+authors = [{ name = "余洋", email = "yuyangit.0515@qq.com" }]
+description = "xy_demo 模块"
 
 dynamic = ["version"]
 
@@ -19,15 +19,16 @@ classifiers = ["Programming Language :: Python :: 3"]
 
 dependencies = ["importlib_resources"]
 
-{project_scripts}
+#[project.scripts]
+#xy_demo = "xy_demo.execute.Main:main"
 
 [tool.setuptools.packages.find]
 where = ["./"]
-include = ["{module_name}"]
+include = ["xy_demo"]
 namespaces = false
 
 [tool.setuptools]
 include-package-data = true
 
 [tool.setuptools.dynamic]
-version = {{ file = "VERSION" }}
+version = { file = "VERSION" }

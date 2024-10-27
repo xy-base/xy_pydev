@@ -9,7 +9,7 @@ requires-python = ">=3.11.3"
 name = "xy_pydev"
 
 authors = [{ name = "余洋", email = "yuyangit.0515@qq.com" }]
-description = "xy_pydev 模块"
+description = "python开发模块"
 
 dynamic = ["version", ]
 
@@ -17,7 +17,7 @@ readme = "README.md"
 
 classifiers = ["Programming Language :: Python :: 3"]
 
-dependencies = ["importlib_resources", "xy_console", "xy_string"]
+dependencies = ["importlib_resources", "xy_console", "xy_string", "xy_argparse", "xy_file"]
 
 [project.scripts]
 xy_pydev = "xy_pydev.execute.Main:main"

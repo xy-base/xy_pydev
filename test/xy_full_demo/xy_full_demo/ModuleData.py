@@ -13,9 +13,9 @@ __doc__ = 'ModuleData'
 
 from importlib_resources import files
 from .BaseModuleData import BaseModuleData
-import {module_name}
+import xy_full_demo
 
 class ModuleData(BaseModuleData):
 
     def __init__(self):
-        self.data_path = files({module_name}.__name__).joinpath("data")  # type: ignore
+        self.data_path = files(xy_full_demo.__name__).joinpath("data")  # type: ignore

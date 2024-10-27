@@ -147,6 +147,7 @@ class Resource:
         module_class_name: str,
         scripts: bool = False,
     ):
+
         self._module_data.write(
             self._module_data.ci_yml_path(),
             self.ci_yml,

@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
-__author__ = '余洋'
-__doc__ = 'PyDev'
-'''
+__author__ = "余洋"
+__doc__ = "PyDev"
+"""
   * @File    :   PyDev.py
   * @Time    :   2023/06/03 10:29:52
   * @Author  :   余洋
@@ -9,96 +9,94 @@ __doc__ = 'PyDev'
   * @Contact :   yuyangit.0515@qq.com
   * @License :   (C)Copyright 2019-2024, Ship of Ocean
   * @Desc    :   None
-'''
-from argparse import ArgumentParser
+"""
+import os
+from argparse import Namespace
+from pathlib import Path
+from xy_file.File import File
+from xy_argparse.ArgParse import ArgParse
 from xy_console.utils import inputt, printt, print_s, print_e, print_r
 from xy_string.utils import is_empty_string, contains_zh
 from .ModuleData import ModuleData
 from .Resource import Resource
 
 
-class PyDev:
+class PyDev(ArgParse):
     _module_data = ModuleData()
     _resource = Resource()
 
-    parser = ArgumentParser(
-        prog="xy_pydev",
-        description="xy_pydev python模块开发工具",
-    )
+    def __init__(self) -> None:
+        self.prog = "xy_dev"
+        self.description = "python模块开发工具"
+
+    def main(self):
+        self.default_parser()
+        self.add_arguments()
+        self.parse_arguments()
+        if self.work():
+            self.run_arguments()
 
     def add_arguments(self):
-        self.parser.add_argument(
-            "-w",
-            "--work",
-            type=str,
-            help="""
-                工作方式
+        self.add_argument(
+            flag="-w",
+            name="--work",
+            help_text="""
+                工作方式:
+                1.clean => 清理模块缓存
+                2.其他  => 创建项目
             """,
-            required=False,
-            nargs="?",
             default="create",
         )
-        self.parser.add_argument(
-            "-n",
-            "--name",
-            type=str,
-            help="""
+        self.add_argument(
+            flag="-n",
+            name="--name",
+            help_text="""
                 Python模块名称 不能包含中文
             """,
-            required=False,
-            nargs="?",
             default="",
         )
-        self.parser.add_argument(
-            "-m",
-            "--module_class_name",
-            type=str,
-            help="""
+        self.add_argument(
+            flag="-m",
+            name="--module_class_name",
+            type_name=str,
+            help_text="""
                 模块入口类名称 不能包含中文
             """,
-            required=False,
-            nargs="?",
             default="",
         )
-        self.parser.add_argument(
-            "-s",
-            "--scripts",
-            type=bool,
-            help="""
+        self.add_argument(
+            flag="-s",
+            name="--scripts",
+            type_name=bool,
+            help_text="""
                 是否开启全局命令
             """,
-            required=False,
-            nargs="?",
-            default="",
+            default=False,
         )
 
     def work(self):
-        try:
-            args, _ = self.parser.parse_known_args()
-            return args.work
-        except Exception:
-            return None
+        arguments = self.arguments()
+        if isinstance(arguments, Namespace):
+            return arguments.work
+        return None
 
     def module_class_name(self):
-        try:
-            args, _ = self.parser.parse_known_args()
-            return args.module_class_name
-        except Exception:
-            return None
+        arguments = self.arguments()
+        if isinstance(arguments, Namespace):
+            return arguments.module_class_name
+        return None
 
     def scripts(self):
-        try:
-            args, _ = self.parser.parse_known_args()
-            return args.scripts
-        except Exception:
-            return None
+        arguments = self.arguments()
+        if isinstance(arguments, Namespace):
+            return arguments.scripts
+        return None
 
     def module_name(self):
-        try:
-            args, _ = self.parser.parse_known_args()
-            return args.name
-        except Exception:
-            return None
+        arguments = self.arguments()
+        if isinstance(arguments, Namespace):
+            return arguments.name
+        return None
 
     def input_module_class_name(self, default: str) -> str | None:
         validate = inputt(
@@ -128,9 +126,11 @@ class PyDev:
                 scripts = True
             else:
                 scripts = False
+        self._module_data.root_path = Path.cwd().joinpath(module_name)
         self._module_data.make_dirs(
             module_name=module_name,
         )
+        self._resource._module_data.root_path = Path.cwd().joinpath(module_name)
         self._resource.write(
             module_name=str(module_name),
             module_class_name=str(module_class_name),
@@ -149,6 +149,26 @@ class PyDev:
 
         return module_name
 
+    def create_dir_check(self, module_name) -> bool:
+        module_path = Path.cwd().joinpath(module_name)
+        if module_path.exists():
+            print_e(f"路径 {module_path} 已存在, 请确认后再进行模块创建")
+            return False
+        else:
+            if os.access(Path.cwd(), os.R_OK) and os.access(Path.cwd(), os.W_OK):
+                return True
+            else:
+                print_e(
+                    f"路径[{module_path}]不合法或者没有权限, 请确认后再进行模块创建"
+                )
+        return False
+
+    def create_dir(self, module_name):
+        module_path = Path.cwd().joinpath(module_name)
+        if os.access(Path.cwd(), os.R_OK) and os.access(Path.cwd(), os.W_OK):
+            return File.touch(module_path)
+        return None
+
     def create(self):
         module_name = self.module_name()
         if is_empty_string(module_name):
@@ -159,20 +179,32 @@ class PyDev:
                 if contains_zh(module_name):
                     printt(f"新模块名称[{module_name}]不能包含中文")
                 else:
-                    self.run(module_name)
+                    validate = self.create_dir_check(module_name)
+                    if validate:
+                        self.run(module_name)
         else:
             if contains_zh(module_name):
                 printt(f"新模块名称[{module_name}]不能包含中文")
             else:
-                self.run(module_name=str(module_name))
+                validate = self.create_dir_check(module_name)
+                if validate:
+                    self.run(module_name=str(module_name))
 
-    def main(self):
-        self.add_arguments()
-        work = self.work()
-        if work == "clean":
-            print_r(
-                f"开始清理模块缓存...",
-            )
-            self._resource.clean()
-        else:
-            self.create()
+    def clean(self):
+        print_r(
+            "开始清理模块缓存...",
+        )
+        self._resource.clean()
+
+    def on_arguments(
+        self,
+        name,
+        value,
+        arguments=None,
+    ):
+        if name == "work":
+            if value == "clean":
+                self.clean()
+                return False
+        self.create()
+        return False

@@ -20,7 +20,7 @@ Simple Python module development tool.
 - <a href="https://github.com/xy-base/xy_list.git" target="_blank">Github</a>  
 - <a href="https://gitee.com/xy-base/xy_list.git" target="_blank">Gitee</a>
 
-## Install
+## Installation
 
 ```bash
 # bash

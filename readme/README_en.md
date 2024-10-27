@@ -23,12 +23,14 @@ Simple Python module development tool.
 ## Install
 
 ```bash
+# bash
 pip install xy_pydev
 ```
 
 ## Start
 
 ```bash
+# bash
 xy_pydev -w clean
 # 删除缓存
 

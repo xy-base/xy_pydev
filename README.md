@@ -23,12 +23,14 @@
 ## 安装
 
 ```bash
+# bash
 pip install xy_pydev
 ```
 
 ## 开始
 
 ```bash
+# bash
 xy_pydev -w clean
 # 删除缓存
 

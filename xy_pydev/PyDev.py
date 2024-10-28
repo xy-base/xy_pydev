@@ -13,7 +13,6 @@ __doc__ = "PyDev"
 import os
 from argparse import Namespace
 from pathlib import Path
-import pkg_resources
 from xy_file.File import File
 from xy_argparse.ArgParse import ArgParse
 from xy_console.utils import inputt, printt, print_s, print_e, print_r
@@ -28,10 +27,11 @@ class PyDev(ArgParse):
     _resource = Resource()
 
     def __init__(self) -> None:
+        version = self.fetch_package_version(xy_pydev.__name__)
         self.prog = (
-            f"xy_pydev-{pkg_resources.get_distribution(xy_pydev.__name__).version}"
+            f"{xy_pydev.__name__}-{version}"
         )
-        self.description = f"python模块开发工具 =====> v{pkg_resources.get_distribution(xy_pydev.__name__).version}"
+        self.description = f"python模块开发工具 =======> v{version}}"
 
     def main(self):
         self.default_parser()

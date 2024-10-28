@@ -86,7 +86,7 @@ xy_pydev
 # 新模块创建完成!!!
 ```
 
-###### 2. Create a module containing global commands
+###### 3. Create a module containing global commands
 
 ```bash
 xy_pydev
@@ -112,7 +112,7 @@ xy_pydev
 # 新模块创建完成!!!
 ```
 
-###### 3. Specify parameters to create a module
+###### 4. Specify parameters to create a module
 
 ```bash
 xy_pydev -h

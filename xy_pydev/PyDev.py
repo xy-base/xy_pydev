@@ -27,11 +27,8 @@ class PyDev(ArgParse):
     _resource = Resource()
 
     def __init__(self) -> None:
-        version = self.fetch_package_version(xy_pydev.__name__)
-        self.prog = (
-            f"{xy_pydev.__name__}-{version}"
-        )
-        self.description = f"python模块开发工具 =======> v{version}}"
+        self.quick_default_info(xy_pydev.__name__)
+        self.description = "python模块开发工具"
 
     def main(self):
         self.default_parser()

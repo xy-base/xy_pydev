@@ -138,6 +138,35 @@ xy_pydev -n xy_arg_demo -m ARG_DEMO -s 1
 # 新模块创建完成!!!
 ```
 
+```bash
+xy_pydev -h
+# usage: xy_pydev-1.0.5 [-h] [-w [WORK]] [-n [NAME]] [-m [MODULE_CLASS_NAME]]
+#                       [-s [SCRIPTS]]
+
+# python模块开发工具 =====> v1.0.5
+
+# options:
+#   -h, --help            show this help message and exit
+#   -w [WORK], --work [WORK]
+#                         工作方式: 1.clean => 清理模块缓存 2.build => 编译 3.utpi =>
+#                         提交到test.pypi.org, upload to test.pypi.org 4.upi =>
+#                         提交到pypi.org, upload to pypi.org 5.其他 => 创建项目
+#   -n [NAME], --name [NAME]
+#                         Python模块名称 不能包含中文
+#   -m [MODULE_CLASS_NAME], --module_class_name [MODULE_CLASS_NAME]
+#                         模块入口类名称 不能包含中文
+#   -s [SCRIPTS], --scripts [SCRIPTS]
+#                         是否开启全局命令
+
+xy_pydev -n xy_arg_demo -m ARG_DEMO -s 1
+# ======================================
+# 新模块名称为: xy_arg_demo
+# ======================================
+# 新模块创建完成!!!
+```
+
+> <b>Tip</b>: After using xy_pydev to create a module, you can import [xy_argparse](https://github.com/xy-base/xy_argparse.git) or [xy_work](https://github.com/xy-base/xy_work.git) to customize and extend the module's functions.
+
 
 ## License
 xy_pydev is licensed under the <Mulan Permissive Software License，Version 2>. See the [LICENSE](../LICENSE) file for more info.

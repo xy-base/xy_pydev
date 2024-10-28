@@ -13,10 +13,12 @@ __doc__ = "PyDev"
 import os
 from argparse import Namespace
 from pathlib import Path
+import pkg_resources
 from xy_file.File import File
 from xy_argparse.ArgParse import ArgParse
 from xy_console.utils import inputt, printt, print_s, print_e, print_r
 from xy_string.utils import is_empty_string, contains_zh
+import xy_pydev
 from .ModuleData import ModuleData
 from .Resource import Resource
 
@@ -26,8 +28,10 @@ class PyDev(ArgParse):
     _resource = Resource()
 
     def __init__(self) -> None:
-        self.prog = "xy_dev"
-        self.description = "python模块开发工具"
+        self.prog = (
+            f"xy_pydev-{pkg_resources.get_distribution(xy_pydev.__name__).version}"
+        )
+        self.description = f"python模块开发工具 =====> v{pkg_resources.get_distribution(xy_pydev.__name__).version}"
 
     def main(self):
         self.default_parser()
@@ -43,7 +47,10 @@ class PyDev(ArgParse):
             help_text="""
                 工作方式:
                 1.clean => 清理模块缓存
-                2.其他  => 创建项目
+                2.build => 编译
+                3.utpi => 提交到test.pypi.org, upload to test.pypi.org
+                4.upi => 提交到pypi.org, upload to pypi.org
+                5.其他  => 创建项目
             """,
             default="create",
         )
@@ -196,6 +203,15 @@ class PyDev(ArgParse):
         )
         self._resource.clean()
 
+    def build(self):
+        os.system("python -m build")
+
+    def utpi(self):
+        os.system("python -m twine upload --repository testpypi dist/* --verbose")
+
+    def upi(self):
+        os.system("python -m twine upload dist/* --verbose")
+
     def on_arguments(
         self,
         name,
@@ -205,6 +221,15 @@ class PyDev(ArgParse):
         if name == "work":
             if value == "clean":
                 self.clean()
+                return False
+            elif value == "build":
+                self.build()
+                return False
+            elif value == "utpi":
+                self.utpi()
+                return False
+            elif value == "upi":
+                self.upi()
                 return False
         self.create()
         return False

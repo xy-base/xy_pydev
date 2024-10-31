@@ -43,10 +43,10 @@ class PyDev(ArgParse):
             name="--work",
             help_text="""
                 工作方式:
-                1.clean | c => 清理模块缓存
-                2.build | b => 编译
-                3.utpi | ut => 提交到test.pypi.org, upload to test.pypi.org
-                4.upi | u => 提交到pypi.org, upload to pypi.org
+                1.clean | c => 清理模块缓存,
+                2.build | b => 编译,
+                3.utpi | ut => 提交到test.pypi.org, upload to test.pypi.org,
+                4.upi | u => 提交到pypi.org, upload to pypi.org,
                 5.其他  => 创建项目
             """,
             default="create",

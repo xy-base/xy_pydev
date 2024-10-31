@@ -124,7 +124,7 @@ xy_pydev -h
 # options:
 #   -h, --help            show this help message and exit
 #   -w [WORK], --work [WORK]
-#                         工作方式: 1.clean | c => 清理模块缓存, 2.build | b => 编译, 3.utpi | ut => 提交到test.pypi.org, upload to test.pypi.org, 4.upi | u => 提交到pypi.org, upload to pypi.org, 5.其他 => 创建项目
+#                         工作方式: 1.clean | c => 清理模块缓存, 2.build | b => 编译, 3.sdist | sd => python setup.py sdist bdist_wheel, 4.utpi | ut => 提交到test.pypi.org, upload to test.pypi.org, 5.upi | u => 提交到pypi.org, upload to pypi.org, 6.其他  => 创建项目
 #   -n [NAME], --name [NAME]
 #                         Python模块名称 不能包含中文
 #   -m [MODULE_CLASS_NAME], --module_class_name [MODULE_CLASS_NAME]

@@ -44,10 +44,11 @@ class PyDev(ArgParse):
             help_text="""
                 工作方式:
                 1.clean | c => 清理模块缓存,
-                2.build | b => 编译,
-                3.utpi | ut => 提交到test.pypi.org, upload to test.pypi.org,
-                4.upi | u => 提交到pypi.org, upload to pypi.org,
-                5.其他  => 创建项目
+                2.build | b => 编译, python -m build,
+                3.sdist | sd => python setup.py sdist bdist_wheel,
+                4.utpi | ut => 提交到test.pypi.org, upload to test.pypi.org,
+                5.upi | u => 提交到pypi.org, upload to pypi.org,
+                6.其他  => 创建项目,
             """,
             default="create",
         )
@@ -203,6 +204,9 @@ class PyDev(ArgParse):
     def build(self):
         os.system("python -m build")
 
+    def sdist(self):
+        os.system("python setup.py sdist bdist_wheel")
+
     def utpi(self):
         os.system("python -m twine upload --repository testpypi dist/* --verbose")
 
@@ -221,6 +225,9 @@ class PyDev(ArgParse):
                 return False
             elif value == "build" or value == "b":
                 self.build()
+                return False
+            elif value == "sdist" or value == "sd":
+                self.sdist()
                 return False
             elif value == "utpi" or value == "ut":
                 self.utpi()

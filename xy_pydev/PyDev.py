@@ -43,10 +43,10 @@ class PyDev(ArgParse):
             name="--work",
             help_text="""
                 工作方式:
-                1.clean => 清理模块缓存
-                2.build => 编译
-                3.utpi => 提交到test.pypi.org, upload to test.pypi.org
-                4.upi => 提交到pypi.org, upload to pypi.org
+                1.clean | c => 清理模块缓存
+                2.build | b => 编译
+                3.utpi | ut => 提交到test.pypi.org, upload to test.pypi.org
+                4.upi | u => 提交到pypi.org, upload to pypi.org
                 5.其他  => 创建项目
             """,
             default="create",
@@ -216,16 +216,16 @@ class PyDev(ArgParse):
         arguments=None,
     ):
         if name == "work":
-            if value == "clean":
+            if value == "clean" or value == "c":
                 self.clean()
                 return False
-            elif value == "build":
+            elif value == "build" or value == "b":
                 self.build()
                 return False
-            elif value == "utpi":
+            elif value == "utpi" or value == "ut":
                 self.utpi()
                 return False
-            elif value == "upi":
+            elif value == "upi" or value == "u":
                 self.upi()
                 return False
         self.create()

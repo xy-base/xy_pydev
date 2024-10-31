@@ -163,7 +163,14 @@ xy_pydev -n xy_arg_demo -m ARG_DEMO -s 1
 # 新模块创建完成!!!
 ```
 
-> <b>提示</b>: 在使用 xy_pydev 建立模組後可以引入 [xy_argparse](https://github.com/xy-base/xy_argparse.git) 或者 [xy_work](https://github.com/xy-base/xy_work.git) 進行自訂和擴充模組的功能.
+##### <b>提示</b>
+在使用 xy_pydev 建立模組後可以引入
+[xy_argparse.github](https://github.com/xy-base/xy_argparse.git)
+[xy_argparse.gitee](https://gitee.com/xy-base/xy_argparse.git)
+或者
+[xy_work.github](https://github.com/xy-base/xy_work.git)
+[xy_work.gitee](https://gitee.com/xy-base/xy_work.git)
+進行自訂和擴充模組的功能.
 
 ## 許可證
 xy_pydev 根據 <木蘭寬鬆許可證, 第2版> 獲得許可。有關詳細信息，請參閱 [LICENSE](../LICENSE) 文件。

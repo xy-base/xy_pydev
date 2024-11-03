@@ -139,15 +139,14 @@ xy_pydev -n xy_arg_demo -m ARG_DEMO -s 1
 # 新模块创建完成!!!
 ```
 
-```bash
-
 ##### <b>Tip</b>
-After using xy_pydev to create a module, you can import 
-[xy_argparse.github](https://github.com/xy-base/xy_argparse.git)
-[xy_argparse.gitee](https://gitee.com/xy-base/xy_argparse.git)
-or
-[xy_work.github](https://github.com/xy-base/xy_work.git)
-[xy_work.gitee](https://gitee.com/xy-base/xy_work.git)
+
+After using xy_pydev to create a module, you can import  
+[xy_argparse.github](https://github.com/xy-base/xy_argparse.git)  
+[xy_argparse.gitee](https://gitee.com/xy-base/xy_argparse.git)  
+or  
+[xy_work.github](https://github.com/xy-base/xy_work.git)  
+[xy_work.gitee](https://gitee.com/xy-base/xy_work.git)  
 to customize and extend the module's functions.
 
 

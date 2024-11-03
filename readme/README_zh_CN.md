@@ -140,12 +140,12 @@ xy_pydev -n xy_arg_demo -m ARG_DEMO -s 1
 ```
 
 ##### <b>提示</b>
-在使用 xy_pydev 创建模块后可以引入 
-[xy_argparse.github](https://github.com/xy-base/xy_argparse.git)
-[xy_argparse.gitee](https://gitee.com/xy-base/xy_argparse.git)
-或者
-[xy_work.github](https://github.com/xy-base/xy_work.git)
-[xy_work.gitee](https://gitee.com/xy-base/xy_work.git)
+在使用 xy_pydev 创建模块后可以引入  
+[xy_argparse.github](https://github.com/xy-base/xy_argparse.git)  
+[xy_argparse.gitee](https://gitee.com/xy-base/xy_argparse.git)  
+或者  
+[xy_work.github](https://github.com/xy-base/xy_work.git)  
+[xy_work.gitee](https://gitee.com/xy-base/xy_work.git)  
 进行定制和扩展模块的功能.
 
 

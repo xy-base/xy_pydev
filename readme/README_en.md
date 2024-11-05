@@ -18,8 +18,9 @@ Simple Python module development tool.
 
 ## Source Code Repositories
 
-- <a href="https://github.com/xy-base/xy_list.git" target="_blank">Github</a>  
-- <a href="https://gitee.com/xy-base/xy_list.git" target="_blank">Gitee</a>
+- <a href="https://github.com/xy-base/xy_pydev.git" target="_blank">Github</a>  
+- <a href="https://gitee.com/xy-opensource/xy_pydev.git" target="_blank">Gitee</a>  
+- <a href="https://gitcode.com/xy-opensource/xy_pydev.git" target="_blank">GitCode</a>  
 
 ## Installation
 
@@ -143,10 +144,10 @@ xy_pydev -n xy_arg_demo -m ARG_DEMO -s 1
 
 After using xy_pydev to create a module, you can import  
 [xy_argparse.github](https://github.com/xy-base/xy_argparse.git)  
-[xy_argparse.gitee](https://gitee.com/xy-base/xy_argparse.git)  
+[xy_argparse.gitee](https://gitee.com/xy-opensource/xy_argparse.git)  
 or  
 [xy_work.github](https://github.com/xy-base/xy_work.git)  
-[xy_work.gitee](https://gitee.com/xy-base/xy_work.git)  
+[xy_work.gitee](https://gitee.com/xy-opensource/xy_work.git)  
 to customize and extend the module's functions.
 
 

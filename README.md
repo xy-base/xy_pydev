@@ -8,7 +8,7 @@
 -->
 # xy_pydev
 
-- [简体中文](readme/README.md)
+- [简体中文](./README.md)
 - [繁體中文](readme/README.zh-hant.md)
 - [English](readme/README.en.md)
 

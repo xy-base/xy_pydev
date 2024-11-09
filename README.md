@@ -8,9 +8,9 @@
 -->
 # xy_pydev
 
-- [简体中文](readme/README_zh_CN.md)
-- [繁体中文](readme/README_zh_TW.md)
-- [English](readme/README_en.md)
+- [简体中文](readme/README.md)
+- [繁體中文](readme/README.zh-hant.md)
+- [English](readme/README.en.md)
 
 # 说明
 简单Python模块开发工具.
@@ -30,12 +30,34 @@ pip install xy_pydev
 
 ## 说明
 
-###### 1. 清理缓存
+###### 1. 显示帮助
+
+```bash
+# bash
+xy_pydev -h
+# usage: xy_pydev-1.0.9 [-h] [-w [WORK]] [-n [NAME]] [-m [MODULE_CLASS_NAME]] [-s [SCRIPTS]]
+
+# python模块开发工具
+
+# options:
+#   -h, --help            show this help message and exit
+#   -w [WORK], --work [WORK]
+#                         工作方式: 1.clean | c => 清理模块缓存, 2.build | b => 编译, python -m build, 3.sdist | sd => python setup.py sdist bdist_wheel, 4.utpi | ut => 提交到test.pypi.org, upload to test.pypi.org, 5.upi | u => 提交到pypi.org, upload
+#                         to pypi.org, 6.其他 => 创建项目,
+#   -n [NAME], --name [NAME]
+#                         Python模块名称 不能包含中文
+#   -m [MODULE_CLASS_NAME], --module_class_name [MODULE_CLASS_NAME]
+#                         模块入口类名称 不能包含中文
+#   -s [SCRIPTS], --scripts [SCRIPTS]
+#                         是否开启全局命令
+```
+
+###### 2. 清理缓存
 
 ```bash
 # bash
 # 删除缓存
-xy_pydev -w clean
+xy_pydev -w c
 # ======================================
 # 开始清理模块缓存...
 # ======================================
@@ -60,7 +82,7 @@ xy_pydev -w clean
 
 ```
 
-###### 2. 创建简易模块
+###### 3. 创建简易模块
 
 ```bash
 # 当前目录在 /home/helios/workspace/project/opensource/xy-base/xy_pydev/test
@@ -87,7 +109,7 @@ xy_pydev
 # 新模块创建完成!!!
 ```
 
-###### 3. 创建包含全局命令的模块
+###### 4. 创建包含全局命令的模块
 
 ```bash
 xy_pydev
@@ -113,7 +135,7 @@ xy_pydev
 # 新模块创建完成!!!
 ```
 
-###### 4. 指定参数创建模块
+###### 5. 指定参数创建模块
 
 ```bash
 xy_pydev -h

@@ -3,14 +3,14 @@
  * @Date: 2024-10-19 10:23:23
  * @LastEditors: yuyangit yuyangit.0515@qq.com
  * @LastEditTime: 2024-10-19 10:28:26
- * @FilePath: /xy_pydev/readme/README_zh_TW.md
+ * @FilePath: /xy_pydev/readme/README.zh-hant.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 # xy_pydev
 
-- [简体中文](README_zh_CN.md)
-- [繁体中文](README_zh_TW.md)
-- [English](README_en.md)
+- [简体中文](../README.md)
+- [繁體中文](README.zh-hant.md)
+- [English](README.en.md)
 
 # 说明
 簡單Python模組開發工具.
@@ -29,7 +29,30 @@ pip install xy_pydev
 
 ## 說明
 
-###### 1. 清理快取
+
+###### 1. 顯示幫助
+
+```bash
+# bash
+xy_pydev -h
+# usage: xy_pydev-1.0.9 [-h] [-w [WORK]] [-n [NAME]] [-m [MODULE_CLASS_NAME]] [-s [SCRIPTS]]
+
+# python模块开发工具
+
+# options:
+#   -h, --help            show this help message and exit
+#   -w [WORK], --work [WORK]
+#                         工作方式: 1.clean | c => 清理模块缓存, 2.build | b => 编译, python -m build, 3.sdist | sd => python setup.py sdist bdist_wheel, 4.utpi | ut => 提交到test.pypi.org, upload to test.pypi.org, 5.upi | u => 提交到pypi.org, upload
+#                         to pypi.org, 6.其他 => 创建项目,
+#   -n [NAME], --name [NAME]
+#                         Python模块名称 不能包含中文
+#   -m [MODULE_CLASS_NAME], --module_class_name [MODULE_CLASS_NAME]
+#                         模块入口类名称 不能包含中文
+#   -s [SCRIPTS], --scripts [SCRIPTS]
+#                         是否开启全局命令
+```
+
+###### 2. 清理快取
 
 ```bash
 # bash
@@ -59,7 +82,7 @@ xy_pydev -w clean
 
 ```
 
-###### 2. 建立簡易模組
+###### 3. 建立簡易模組
 
 ```bash
 # 当前目录在 /home/helios/workspace/project/opensource/xy-base/xy_pydev/test
@@ -86,7 +109,7 @@ xy_pydev
 # 新模块创建完成!!!
 ```
 
-###### 3. 建立包含全域命令的模組
+###### 4. 建立包含全域命令的模組
 
 ```bash
 xy_pydev
@@ -112,7 +135,7 @@ xy_pydev
 # 新模块创建完成!!!
 ```
 
-###### 4. 指定參數建立模組
+###### 5. 指定參數建立模組
 
 ```bash
 xy_pydev -h

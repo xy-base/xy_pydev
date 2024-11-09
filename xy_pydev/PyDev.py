@@ -13,7 +13,7 @@ __doc__ = "PyDev"
 import os
 from argparse import Namespace
 from pathlib import Path
-from xy_file.File import File
+from xy_file.Object.File import File
 from xy_argparse.ArgParse import ArgParse
 from xy_console.utils import inputt, printt, print_s, print_e, print_r
 from xy_string.utils import is_empty_string, contains_zh

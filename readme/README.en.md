@@ -9,18 +9,16 @@
 
 # xy_pydev
 
-- [简体中文](../README.md)
-- [繁體中文](README.zh-hant.md)
-- [English](README.en.md)
+| [简体中文](../README.md)         | [繁體中文](./README.zh-hant.md)        |                      [English](./README.en.md)          |
+| ----------- | -------------|---------------------------------------|
 
 # Description
 Simple Python module development tool.
 
 ## Source Code Repositories
 
-- <a href="https://github.com/xy-base/xy_pydev.git" target="_blank">Github</a>  
-- <a href="https://gitee.com/xy-opensource/xy_pydev.git" target="_blank">Gitee</a>  
-- <a href="https://gitcode.com/xy-opensource/xy_pydev.git" target="_blank">GitCode</a>  
+| [Github](https://github.com/xy-base/xy_pydev.git)         | [Gitee](https://gitee.com/xy-opensource/xy_pydev.git)        |                      [GitCode](https://gitcode.com/xy-opensource/xy_pydev.git)          |
+| ----------- | -------------|---------------------------------------|
 
 ## Installation
 

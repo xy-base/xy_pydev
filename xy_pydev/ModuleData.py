@@ -65,9 +65,6 @@ class ModuleData(BaseModuleData):
         self.resource = self.make_data_template(
             self.resource_name,
         )
-        self.utils = self.make_data_template(
-            self.utils_name,
-        )
         self.vscode_settings = self.make_data_template(
             self.vscode_settings_name,
         )

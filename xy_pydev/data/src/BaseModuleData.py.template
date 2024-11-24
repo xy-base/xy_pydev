@@ -13,8 +13,9 @@ __doc__ = 'BaseModuleData'
 
 from importlib.abc import Traversable
 from pathlib import Path
-from .utils import is_empty_string
 
+def is_empty_string(a_string: str | None):
+    return not isinstance(a_string, str) or not a_string or len(a_string) == 0
 
 class BaseModuleData:
     template_suffix = ".template"

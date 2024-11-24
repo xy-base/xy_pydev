@@ -42,7 +42,6 @@ class Resource:
             if isinstance(vscode_settings_content, str)
             else None
         )
-        self.utils = self.read_text(self._module_data.utils)
 
     def read_text(self, file_path: Path | Traversable | None) -> str | None:
         if (
@@ -230,12 +229,6 @@ class Resource:
                 module_name=module_name,
             ),
             self.resource,
-        )
-        self._module_data.write(
-            self._module_data.utils_path(
-                module_name=module_name,
-            ),
-            self.utils,
         )
 
     clean_target_name_list = [
